@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
     
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(answer_params)
+  
   end
 
   def update

@@ -1,9 +1,11 @@
 require_relative 'acceptance_helper'
+
 feature 'User answer',%{
 	In order to exchange my knowledge
 	As an authenticated user
 	I want to be able to create answers 
 }do
+
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
   scenario 'Authenticated user create answer', js: true do
@@ -25,6 +27,6 @@ feature 'User answer',%{
     visit question_path(question)
     click_on 'Create'
 
-    expect(page).to have_content 'Answers body cant be blank'
+    expect(page).to have_content "Body can't be blank"
   end 
 end 

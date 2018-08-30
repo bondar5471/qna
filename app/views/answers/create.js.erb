@@ -1,9 +1,10 @@
 <% if @answer.errors.present? %>
     <% @answer.errors.full_messages.each do |mesage| %>
-        $('#answer_body').before('<%= j mesage %>');
+      $('.answer-errors').html('<%= j mesage %>');
     <% end %>
 <% else %>
-
+alert('Aded last answer!');
 $('.answers').html('<%= j render 'questions/answers' %>');
 $('#answer_body').val('');
+
 <% end %>

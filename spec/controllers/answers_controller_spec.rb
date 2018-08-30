@@ -15,7 +15,7 @@ describe AnswersController, type: :controller do
             it 'redirects to show view' do
               
               post :create, params: { answer: attributes_for(:answer), question_id: question, format: :js }
-              expect(response).to redirect_to question_path(question)
+              expect(response).to render_template :create
                   end
               end  
     context 'with invalid attributes' do
@@ -24,7 +24,7 @@ describe AnswersController, type: :controller do
          end
         it 're-render new viev' do
          post :create, params: { answer: attributes_for(:invalid_answer), question_id: question, format: :js}
-        expect(response).to redirect_to question_path(question)
+         expect(response).to render_template :create
                end
           end
          

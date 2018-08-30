@@ -35,8 +35,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'rails-controller-testing'
 gem 'devise'
-gem 'jquery-ui-rails'
+gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
