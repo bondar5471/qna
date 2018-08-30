@@ -34,6 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'slim-rails'
 gem 'rails-controller-testing'
+gem 'devise'
+gem 'jquery-ui-rails'
+gem 'twitter-bootstrap-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -50,12 +54,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+ 
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+  
+ 
+  
+ 
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'shoulda-matchers'
@@ -64,6 +71,10 @@ end
 group :test, :development do
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+gem 'database_cleaner'
+gem 'capybara-webkit'
+gem 'launchy'
+gem 'capybara', '>= 2.15', '< 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
