@@ -1,6 +1,4 @@
-- if current_user
-    p = link_to 'Sign out', destroy_user_session_path, method: :delete
-p= link_to  "Ask question", new_question_path
-- @questions.each do |question|
-  p= link_to question.title, question
-  
+.questions
+  = render @questions
+br
+  = link_to 'Ask question', new_question_path, class: 'btn btn-success'

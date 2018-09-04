@@ -1,0 +1,5 @@
+<% if current_user.author_of?(@answer) %>
+  var id = <%= @answer.id %>;
+  $('[data-answer-id="'+ id +'"]').remove();
+  alert('Answer destroy!');
+<% end %>

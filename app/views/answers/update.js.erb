@@ -1,9 +1,9 @@
 <% if @answer.errors.present? %>
   $('#erros-messages').html('<%= j resource_error_messages!(@answer) %>');
 <% else %>
-  $('.answers').prepend("<%= j render @answer %>");
-  $('#answer_body').val('');
-  $('.edit-answer-link').click(function (e) {
+  $('[data-answer-id="' + "<%= @answer.id %>" + '"]')
+    .replaceWith("<%= j render @answer %>")
+  $('.edit-answer-link').on('click', function (e) {
     e.preventDefault();
     $(this).hide();
     var answer_id = $(this).parents('.answer').data('answerId');

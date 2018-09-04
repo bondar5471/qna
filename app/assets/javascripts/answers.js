@@ -1,8 +1,4 @@
-<% if @answer.errors.present? %>
-  $('#erros-messages').html('<%= j resource_error_messages!(@answer) %>');
-<% else %>
-  $('.answers').prepend("<%= j render @answer %>");
-  $('#answer_body').val('');
+$(document).ready(function () {
   $('.edit-answer-link').click(function (e) {
     e.preventDefault();
     $(this).hide();
@@ -11,4 +7,4 @@
     $('form#edit-answer-' + answer_id).show();
     $('#best-answer-link-' + answer_id).hide();
   });
-<% end %>
+});
