@@ -1,7 +1,9 @@
-class Attachment < ApplicationRecord
-    belongs_to :attachable, polymorphic: true, optional: true
+# frozen_string_literal: true
 
-    validates :file, presence: true
-  
-    mount_uploader :file, FileUploader
+class Attachment < ApplicationRecord
+  belongs_to :attachable, polymorphic: true, optional: true
+
+  validates :file, presence: true
+
+  mount_uploader :file, FileUploader
 end

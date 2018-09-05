@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 class Question < ApplicationRecord
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :answers, dependent: :destroy
   belongs_to :user
-   
-  
-    validates :title, :body, presence: true
-  
-    def best_answer
-      answers.best_answers.first
-    end
+
+  validates :title, :body, presence: true
+
+  accepts_nested_attributes_for :attachments
+
+  def best_answer
+    answers.best_answers.first
+  end
 end

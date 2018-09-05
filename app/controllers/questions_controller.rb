@@ -1,54 +1,49 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
-   
-    before_action :load_question, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:index, :show]
-    
-    def index
-      @questions = Question.all
-    end
+  before_action :load_question, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
-    def show
-      @answer = @question.answers.build   
-      
-    end
-  
-    def new 
-      @question = Question.new
-    end
+  def index
+    @questions = Question.all
+  end
 
-    def edit
-       
-    end
- 
-    def create 
-        
-        @question = current_user.questions.new(questions_params)
-        if @question.save
-            flash[:notice] = 'Your question successfully created.'
-            redirect_to questions_path
-        else 
-            render :new
-        end
-    end
+  def show
+    @answer = @question.answers.build
+  end
 
-    def  update
-        @question.update(questions_params) if current_user.author_of?(@question)
-      
-    end
+  def new
+    @question = Question.new
+  end
 
-    def destroy
-      @question.destroy if current_user.author_of?(@question)
+  def edit; end
+
+  def create
+    @question = current_user.questions.new(questions_params)
+    if @question.save
+      flash[:notice] = 'Your question successfully created.'
       redirect_to questions_path
+    else
+      render :new
     end
+  end
 
-    private
+  def update
+    @question.update(questions_params) if current_user.author_of?(@question)
+  end
 
-    def load_question
-        @question = Question.find(params[:id])
-    end
+  def destroy
+    @question.destroy if current_user.author_of?(@question)
+    redirect_to questions_path
+  end
 
-    def questions_params
-       
-        params.require(:question).permit( :title, :body )
-    end
+  private
+
+  def load_question
+    @question = Question.find(params[:id])
+  end
+
+  def questions_params
+    params.require(:question).permit(:title, :body)
+  end
 end

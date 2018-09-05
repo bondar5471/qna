@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require_relative 'acceptance_helper'
 
-feature 'User answer',%{
+feature 'User answer', %(
 	In order to exchange my knowledge
 	As an authenticated user
-	I want to be able to create answers 
-}do
+	I want to be able to create answers
+) do
 
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
@@ -18,7 +20,6 @@ feature 'User answer',%{
     expect(current_path).to eq question_path(question)
     within '.answers' do
       expect(page).to have_content 'My answer'
-			
     end
   end
 
@@ -28,5 +29,5 @@ feature 'User answer',%{
     click_on 'Create'
 
     expect(page).to have_content "Body can't be blank"
-  end 
-end 
+  end
+end
