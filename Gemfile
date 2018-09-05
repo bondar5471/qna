@@ -37,6 +37,7 @@ gem 'rails-controller-testing'
 gem 'devise'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'carrierwave'
 
 
 # Reduces boot times through caching; required in config/boot.rb

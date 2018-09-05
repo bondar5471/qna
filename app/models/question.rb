@@ -1,10 +1,12 @@
 class Question < ApplicationRecord
-    has_many :answers, dependent: :destroy
-    belongs_to :user
+  has_many :attachments, as: :attachable, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  belongs_to :user
+   
   
     validates :title, :body, presence: true
   
     def best_answer
       answers.best_answers.first
     end
-  end
+end
