@@ -34,6 +34,9 @@ RSpec.describe QuestionsController, type: :controller do
     it 'assign new answer for question' do
       expect(assigns(:answer)).to be_a_new(Answer)
     end
+    it 'builds new attachments for answer' do
+      expect(assigns(:answer).attachments.first).to be_a_new(Attachment)
+    end
   end
   describe 'GET #new' do
     sign_in_user

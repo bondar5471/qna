@@ -12,7 +12,9 @@
 //
 //= require jquery3
 //= require jquery
+//= require jquery_ujs
+//= require jquery.remotipart
+//= require cocoon
 //= twitter-bootstrap-rails-4.0.0
 //= require turbolinks
-//= require jquery_ujs
 //= require_tree .
