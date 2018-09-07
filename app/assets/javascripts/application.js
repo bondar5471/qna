@@ -15,6 +15,11 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require cocoon
+//= require private_pub
+//= require action_cable
 //= twitter-bootstrap-rails-4.0.0
 //= require turbolinks
 //= require_tree .
+
+var App = App || {};
+App.cable = ActionCable.createConsumer();

@@ -12,22 +12,24 @@
 
 .row
   - if user_signed_in?
-    h4 Your answer
-    = form_for([@question, @answer], remote: true) do |f|
+    h2 Your answer
+    = form_for [@question, @answer], remote: true do |f|
       .answer-errors
       .form-group
         = f.label :body
         = f.text_area :body, class: 'form-control'
-      
-      =f.fields_for :attachments do |a|
-        = a.label :file
-        = a.file_field :file
+        
+        =f.fields_for :attachments do |a|
+          = a.label :file
+          = a.file_field :file
       .form-group
         .actions
           = f.submit 'Create answer', class: 'btn btn-primary'
 
 .row
-  h4 Answers
+  = subscribe_to "/questions/#{@question.id}/answers"
+.row
+  h2 Answers
   .answers
     = render 'answers'
      = @answer.attachments.each do |a|

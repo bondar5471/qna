@@ -43,7 +43,8 @@ gem 'slim-rails'
 gem 'twitter-bootstrap-rails'
 gem 'remotipart'
 gem "cocoon"
-
+gem 'private_pub'
+gem 'thin'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
