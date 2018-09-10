@@ -12,8 +12,10 @@ $(document).ready(function () {
   App.cable.subscriptions.create("QuestionsChannel", {
     connected: function () {
       this.perform("follow");
+      console.log( 'Connected!')
     },
     received: function (data) {
+      console.log( 'Resive!');
       var current_user_id = $('.user').data('currentUserId');
       var question = JSON.parse(data["question"]);
       var user_id = question.user_id;
@@ -23,4 +25,3 @@ $(document).ready(function () {
           current_user: current_user_id
         }));
       }}});
-      

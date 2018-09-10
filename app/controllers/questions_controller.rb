@@ -5,13 +5,16 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   after_action :publish_question, only: %i[create]
+
+  respond_to :html
+
+
   def index
     @questions = Question.all
   end
 
   def show
     @answer = @question.answers.build
-    @answer.attachments.build
   end
 
   def new
@@ -39,7 +42,7 @@ class QuestionsController < ApplicationController
     @question.destroy if current_user.author_of?(@question)
     redirect_to questions_path
   end
-
+  
   private
 
   def load_question
@@ -47,9 +50,14 @@ class QuestionsController < ApplicationController
   end
 
   def publish_question
+
     return if @question.errors.any?
-    ActionCable.server.broadcast 'questions', ApplicationController.render(partial: 'questions/question',
+    ActionCable.server.broadcast(
+      'questions',
+      ApplicationController.render(
+        partial: 'questions/question',
         locals: { question: @question }
+      )
     )
   end
 

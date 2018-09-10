@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.configure do |config|
+  Capybara.server = :puma
   Capybara.javascript_driver = :webkit
   config.include AcceptanseMacros, type: :feature
   config.use_transactional_fixtures = false

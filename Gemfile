@@ -35,16 +35,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'carrierwave'
+gem 'cocoon'
 gem 'devise'
 gem 'jquery-rails'
+gem 'private_pub'
 gem 'rails-controller-testing'
+gem 'remotipart'
+gem 'responders'
 gem 'rubocop'
 gem 'slim-rails'
-gem 'twitter-bootstrap-rails'
-gem 'remotipart'
-gem "cocoon"
-gem 'private_pub'
 gem 'thin'
+gem 'twitter-bootstrap-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
