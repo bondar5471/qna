@@ -3,9 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
-  let(:question) { create(:question) }
-  let(:user) { create(:user) }
-
+  let(:question) { create(:question, user: create(:user)) }
+  
   describe 'GET #index' do
     let(:questions) { create_list(:question, 2) }
 
@@ -34,20 +33,14 @@ RSpec.describe QuestionsController, type: :controller do
     it 'assign new answer for question' do
       expect(assigns(:answer)).to be_a_new(Answer)
     end
-    it 'builds new attachments for answer' do
-      expect(assigns(:answer).attachments.first).to be_a_new(Attachment)
-    end
-  end
+ end
+ 
   describe 'GET #new' do
     sign_in_user
 
     before { get :new }
     it 'assign a new Question to @question' do
       expect(assigns(:question)).to be_a_new(Question)
-    end
-
-    it 'builds new attachments for question' do
-      expect(assigns(:question).attachments.first).to be_a_new(Attachment)
     end
 
     it 'render new view' do
@@ -97,7 +90,6 @@ RSpec.describe QuestionsController, type: :controller do
     end
 
     it 'changes question attributes' do
-      patch :update, params: { id: question, question: { title: 'new title', body: 'new body' } }
       question.reload
       expect(question.title).to eq 'new title'
       expect(question.body).to eq 'new body'
@@ -124,10 +116,6 @@ RSpec.describe QuestionsController, type: :controller do
     before { question }
     it 'delete question' do
       expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(-1)
-    end
-    it 'redirect to index view' do
-      delete :destroy, params: { id: question }
-      expect(response).to redirect_to question_path
     end
   end
 end

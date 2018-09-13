@@ -5,20 +5,29 @@ class AnswersController < ApplicationController
   before_action :find_question
   before_action :find_answer, only: %i[update make_best destroy]
 
+  respond_to :js
+
+  authorize_resource
+
   def create
     @answer = @question.answers.create(answer_params.merge(user: current_user))
+    flash[:notice] = 'Your answer successfully created.'
+   
   end
 
   def update
     @answer.update(answer_params) if current_user.author_of?(@answer)
+    respond_with @answer
   end
 
   def make_best
     @answer.make_best! if current_user.author_of?(@question)
+    respond_with @answer
   end
 
   def destroy
     @answer.destroy if current_user.author_of?(@answer)
+    respond_with @answer
   end
 
   private

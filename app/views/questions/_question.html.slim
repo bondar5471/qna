@@ -9,6 +9,7 @@
     - if user_signed_in? && current_user.author_of?(question)
       = form_for question, method: :patch, remote: true, html: { id: "edit-question-#{question.id}" } do |f|
         .form-group
+        
           = f.label :title
           = f.text_field :title, class: 'form-control'
         .form-group
@@ -21,4 +22,3 @@
         span.glyphicon.glyphicon-floppy-remove Delete
       = link_to '', class: 'edit-question-link btn btn-warning'
         span.glyphicon.glyphicon-edit Edit
-

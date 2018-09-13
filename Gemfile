@@ -41,11 +41,20 @@ gem 'jquery-rails'
 gem 'private_pub'
 gem 'rails-controller-testing'
 gem 'remotipart'
-gem 'responders'
 gem 'rubocop'
 gem 'slim-rails'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'responders', '~> 2.0'
+gem 'omniauth'
+gem 'omniauth-twitter' 
+gem 'omniauth-facebook' 
+gem 'omniauth-github'
+gem 'disqus_rails'
+gem 'cancancan'
+
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

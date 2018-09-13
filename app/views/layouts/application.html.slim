@@ -13,8 +13,12 @@ html
     = javascript_include_tag 'application'
     = action_cable_meta_tag
     = csrf_meta_tags
+   
+   
 
   body
+  
+  
     .navbar.navbar-inverse.navbar-static-top role="navigation"
       .container
         .navbar-header
@@ -29,7 +33,7 @@ html
           ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               li
-                = link_to "#{current_user.try(:email)}", '#'
+                = link_to "Welcome,#{current_user.try(:email)}", '#'
               li
                 = link_to 'Sign out', destroy_user_session_path, :method => :delete
             - else
@@ -52,7 +56,7 @@ html
       #erros-messages
       = yield
 
-  footer.page-foorer
+footer.page-foorer
     .container-fluid
     p &copy; Company 2018
     .row
