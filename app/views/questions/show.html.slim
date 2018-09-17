@@ -35,6 +35,7 @@
 .row
   h2 Answers
   .answers
+    .content
     = render 'answers'
      = @answer.attachments.each do |a|
       li= link_to a.file.file.identifier, a.file.url

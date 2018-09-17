@@ -34,27 +34,28 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'active_model_serializers'
+gem 'cancancan'
 gem 'carrierwave'
 gem 'cocoon'
 gem 'devise'
+gem 'disqus_rails'
+gem 'doorkeeper', '4.2.6'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
 gem 'private_pub'
 gem 'rails-controller-testing'
 gem 'remotipart'
+gem 'responders', '~> 2.0'
 gem 'rubocop'
 gem 'slim-rails'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
-gem 'responders', '~> 2.0'
-gem 'omniauth'
-gem 'omniauth-twitter' 
-gem 'omniauth-facebook' 
-gem 'omniauth-github'
-gem 'disqus_rails'
-gem 'cancancan'
-
-
-
+gem 'oj'
+gem 'oj_mimic_json'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -78,6 +79,7 @@ group :test do
 
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'json_spec'
   gem 'shoulda-matchers'
 end
 

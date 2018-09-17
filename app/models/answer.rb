@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
   belongs_to :user, optional: true
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :comments, as: :commentable
-  
+
   validates :body, presence: true
 
   accepts_nested_attributes_for :attachments

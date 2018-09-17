@@ -41,13 +41,13 @@ class QuestionsController < ApplicationController
   def destroy
     respond_with(@question.destroy)
   end
-  
+
   private
 
   def load_question
-  @question = Question.includes(:user).find(params[:id])
+    @question = Question.includes(:user).find(params[:id])
   end
-  
+
   def publish_question
     return if @question.errors.any?
     ActionCable.server.broadcast('questions', @question.attributes.merge(email: @question.user.email))

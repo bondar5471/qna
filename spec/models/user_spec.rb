@@ -7,15 +7,15 @@ RSpec.describe User do
   it { should validate_presence_of :password }
 
   describe '.find_for_oauth' do
-    let!(:user) {create(:user)}
-    let(:auth) {OmniAuth::AuthHash.new(provider: 'github', uid: '123456')}
+    let!(:user) { create(:user) }
+    let(:auth) { OmniAuth::AuthHash.new(provider: 'github', uid: '123456') }
     context 'User already has authorization' do
-      it 'returns the user'do
+      it 'returns the user' do
         user.authorizations.create(provider: 'github', uid: '123456')
         expect(User.find_for_oauth(auth)).to eq user
       end
     end
-  
+
     context 'user has not authorization' do
       context 'user already exists' do
         let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: user.email }) }
@@ -32,7 +32,6 @@ RSpec.describe User do
 
           expect(authorization.provider).to eq auth.provider
           expect(authorization.uid).to eq auth.uid
-
         end
 
         it 'return the user' do
@@ -41,7 +40,7 @@ RSpec.describe User do
       end
       context 'User does not exist' do
         let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: 'new@user.com' }) }
-        
+
         it 'creates new user' do
           expect { User.find_for_oauth(auth) }.to change(User, :count).by(1)
         end

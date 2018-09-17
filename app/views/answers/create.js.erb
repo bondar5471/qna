@@ -1,7 +1,7 @@
 <% if @answer.errors.present? %>
   $('#erros-messages').html('<%= j resource_error_messages!(@answer) %>');
 <% else %>
-  $('.answers').prepend("<%= j render @answer %>");
+ // $('.answers').prepend("<%= j render @answer %>");
   $('.new_answer #answer_body').val('');
   $('.edit-answer-link').click(function (e) {
     e.preventDefault();
