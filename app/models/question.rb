@@ -10,7 +10,20 @@ class Question < ApplicationRecord
 
   accepts_nested_attributes_for :attachments
 
+  after_create :update_reputation
+
   def best_answer
     answers.best_answers.first
+  end
+
+  private
+
+  def update_reputation
+    self.delay.calculate_reputation
+  end
+
+  def calculate_reputation
+    reputation = Reputation.calculate(self)
+    user.update(reputation: reputation)
   end
 end

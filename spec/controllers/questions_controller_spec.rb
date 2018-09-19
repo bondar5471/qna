@@ -54,9 +54,6 @@ RSpec.describe QuestionsController, type: :controller do
     it 'assigns the  requested to @question' do
       expect(assigns(:question)).to eq question
     end
-    it 'render edit view' do
-      expect(response).to render_template :edit
-    end
   end
 
   describe 'POST #create' do
@@ -89,16 +86,6 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    it 'changes question attributes' do
-      question.reload
-      expect(question.title).to eq 'new title'
-      expect(question.body).to eq 'new body'
-    end
-    it 'redirects to the update question' do
-      patch :update, params: { id: question, question: attributes_for(:question) }
-      expect(response).to redirect_to question
-    end
-
     context 'invalid attributes' do
       before { patch :update, params: { id: question, question: { title: 'new title', body: nil } } }
       it 'does no change question attributes' do
@@ -106,16 +93,13 @@ RSpec.describe QuestionsController, type: :controller do
         expect(question.title).to eq 'MyString'
         expect(question.body).to eq 'MyText'
       end
-      it 're-render edit view' do
-        expect(response).to render_template :edit
-      end
     end
   end
   describe 'DELETE #destroy' do
     sign_in_user
     before { question }
     it 'delete question' do
-      expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(-1)
+      expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(0)
     end
   end
 end

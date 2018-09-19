@@ -42,6 +42,8 @@ gem 'devise'
 gem 'disqus_rails'
 gem 'doorkeeper', '4.2.6'
 gem 'jquery-rails'
+gem 'oj'
+gem 'oj_mimic_json'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
@@ -54,8 +56,12 @@ gem 'rubocop'
 gem 'slim-rails'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
-gem 'oj'
-gem 'oj_mimic_json'
+#gem 'delayed_job_active_record'
+gem 'sidekiq'
+
+gem 'whenever', require: false
+#gem 'sidekiq'
+gem 'redis', '4.0.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -89,6 +95,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'rspec-its'
   gem 'rspec-rails'
 end
 
