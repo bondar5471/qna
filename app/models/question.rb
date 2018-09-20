@@ -5,7 +5,9 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   belongs_to :user, optional: true
   has_many :comments, as: :commentable
-
+  has_many :subscribers, through: :subscriptions, source: :user
+  has_many :subscriptions, dependent: :destroy
+  
   validates :title, :body, presence: true
 
   accepts_nested_attributes_for :attachments
@@ -19,11 +21,6 @@ class Question < ApplicationRecord
   private
 
   def update_reputation
-    self.delay.calculate_reputation
-  end
-
-  def calculate_reputation
-    reputation = Reputation.calculate(self)
-    user.update(reputation: reputation)
+    CalculateReputationJob.perform_later(self)
   end
 end

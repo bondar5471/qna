@@ -13,7 +13,7 @@ class Answer < ApplicationRecord
   scope :best_answers,     -> { where(best: true) }
   scope :not_best_answers, -> { where(best: false) }
 
-  after_create :calculate_rating
+  after_create :update_reputation
 
   def make_best!
     ActiveRecord::Base.transaction do
@@ -26,7 +26,7 @@ class Answer < ApplicationRecord
 
   private
 
-  def calculate_rating
-    Reputation.delay.calculate(self)
+  def update_reputation
+    CalculateReputationJob.perform_later(self)
   end
 end

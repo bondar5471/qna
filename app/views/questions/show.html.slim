@@ -2,6 +2,12 @@
 .row
   h2= @question.title
   p= @question.body
+  - if user_signed_in?
+    - if current_user.subscribed_for?(@question)
+      = link_to 'Unsubscribe', subscriptions_path(id: current_user.subscribtion_for(@question)), method: :delete
+    - else
+      = link_to 'Subscribe', subscriptions_path(question_id: @question), method: :post
+  br
   p Attached files
   ul
     - @question.attachments.each do |a|

@@ -8,13 +8,24 @@ class User < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :authorizations
+  has_many :subscriptions, dependent: :destroy
+  has_many :question_subscriptions, through: :subscriptions, source: :question
+
   def author_of?(resource)
     id == resource.user_id
   end
 
-  def self.send_daily_digest 
+  def subscribed_for?(question)
+    !!self.subscriptions.where(question_id: question).first
+  end
+
+  def subscribtion_for(question)
+    self.subscriptions.where(question_id: question).first
+  end
+
+  def self.send_daily_digest
     find_each.each do |user|
-      DailyMailer.delay.digest(user)
+      DailyMailer.digest(user).deliver_later
     end
   end
 

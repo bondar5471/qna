@@ -56,11 +56,10 @@ gem 'rubocop'
 gem 'slim-rails'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
-#gem 'delayed_job_active_record'
 gem 'sidekiq'
-
+gem 'sinatra', '>= 1.3.0', require: nil
+gem 'sidetiq'
 gem 'whenever', require: false
-#gem 'sidekiq'
 gem 'redis', '4.0.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

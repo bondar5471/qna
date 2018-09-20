@@ -11,7 +11,7 @@ require 'shoulda/matchers'
 require 'cancan/matchers'
 require 'sidekiq/testing'
 
-Sidekiq::Testing.inline!
+Sidekiq::Testing.fake!
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
