@@ -9,6 +9,14 @@ class AnswersController < ApplicationController
 
   authorize_resource
 
+  def index
+    if params[:query].present?
+      @answers = Answer.search(params[:query]).records.records
+    else
+      @answers = Answer.all
+    end
+  end  
+
   def create
     @answer = @question.answers.create(answer_params.merge(user: current_user))
     flash[:notice] = 'Your answer successfully created.'

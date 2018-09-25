@@ -27,8 +27,17 @@ Rails.application.routes.draw do
   end
 
   resources :questions do
+    collection do
+      get :search
+    end
     resources :comments
+    collection do
+      get :search
+    end
     resources :answers do
+      collection do
+        get :search
+      end
       member do
         patch :make_best
       end

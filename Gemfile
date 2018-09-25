@@ -61,6 +61,8 @@ gem 'sinatra', '>= 1.3.0', require: nil
 gem 'sidetiq'
 gem 'whenever', require: false
 gem 'redis', '4.0.2'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

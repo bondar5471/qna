@@ -10,8 +10,12 @@ class QuestionsController < ApplicationController
   authorize_resource
 
   def index
-    respond_with(@questions = Question.all)
-  end
+    if params[:query].present?
+      @questions = Question.search(params[:query]).records.records
+    else
+      @questions = Question.all
+    end
+  end 
 
   def show
     @answer = @question.answers.build
@@ -40,6 +44,13 @@ class QuestionsController < ApplicationController
 
   def destroy
     respond_with(@question.destroy)
+  end
+
+  def search
+    query = params[:search_questions].presence && params[:search_questions][:query]
+    if query
+      @questions = Question.search(query)
+    end
   end
 
   private

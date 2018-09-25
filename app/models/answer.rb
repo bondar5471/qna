@@ -1,6 +1,9 @@
 # frozen_string_literal: true
+require 'elasticsearch/model'
 
 class Answer < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   belongs_to :question, optional: true
   belongs_to :user, optional: true
   has_many :attachments, as: :attachable, dependent: :destroy

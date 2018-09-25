@@ -67,7 +67,7 @@ h2 {
     padding: 50px 0 0 0;
 }
 
-p{
+p {
     display: block;
     position: relative;
     text-align: left;
@@ -77,3 +77,16 @@ p{
     font-weight: bold;
     padding: 20px 0 0 0;
 }
+.scrollup{
+    width:50px;
+    height:50px;
+    opacity:0.5;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    //background-image: url('../images/icon_top.png');
+    background-color: #101010;
+    border-radius: 50px ;
+    }
