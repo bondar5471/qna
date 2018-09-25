@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180904-25654-1b4c5a5.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-iqyqhn.rb extconf.rb
 creating Makefile
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
@@ -16,4 +16,4 @@ linking shared-object bcrypt_ext.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20180904-25654-1asasmk
+/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20180925-12023-160issy

@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/thin-1.7.2/ext/thin_parser
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180906-628-vvtlzm.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-17y6qsc.rb extconf.rb
 checking for main() in -lc... yes
 creating Makefile
 
@@ -37,4 +37,4 @@ linking shared-object thin_parser.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/thin-1.7.2/ext/thin_parser
 make "DESTDIR=" install
-/usr/bin/install -m 0755 thin_parser.so ./.gem.20180906-628-17vkz0y
+/usr/bin/install -m 0755 thin_parser.so ./.gem.20180925-12023-amq66o

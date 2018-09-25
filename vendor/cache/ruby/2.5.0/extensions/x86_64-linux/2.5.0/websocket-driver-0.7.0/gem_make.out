@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180904-25654-hdgd8g.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-2iktf4.rb extconf.rb
 creating Makefile
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
@@ -12,4 +12,4 @@ linking shared-object websocket_mask.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
 make "DESTDIR=" install
-/usr/bin/install -m 0755 websocket_mask.so ./.gem.20180904-25654-lxkctc
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20180925-12023-1mzccy7

@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/nokogiri-1.8.4/ext/nokogiri
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180904-25654-897uwk.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-10074yw.rb extconf.rb
 checking if the C compiler accepts ... yes
 Building nokogiri using packaged libraries.
 Using mini_portile version 2.3.0
@@ -118,4 +118,4 @@ rm -rf /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/nokogir
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/nokogiri-1.8.4/ext/nokogiri
 make "DESTDIR=" install
-/usr/bin/install -m 0755 nokogiri.so ./.gem.20180904-25654-q9pd54/nokogiri
+/usr/bin/install -m 0755 nokogiri.so ./.gem.20180925-12023-4ztvtw/nokogiri
