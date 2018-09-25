@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <ul class='foo'>
+    <li> Item 1 </li>
+    <br/>
+    <li> Item 2 </li>
+    <br/>
+</ul>
+
+<input type='button' value='Item +' id='btn'>
+
+<script>
+$('#btn').click(function(){
+  $('.foo').append('<li> Last item</li><br/>');
+  alert('Aded last item!');
+});
+</script>
+
+</body>
+</html>
