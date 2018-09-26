@@ -8,8 +8,9 @@ h2 New question
  = f.label :body
  p
  = f.text_area  :body
- p Attachments:
+ p Add file:
  p
+  .upload_file
 
     =f.fields_for :attachments do |a|
 

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready( function() {
   $('.edit-answer-link').click(function (e) {
     e.preventDefault();
     $(this).hide();

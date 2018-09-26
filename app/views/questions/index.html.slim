@@ -6,5 +6,5 @@ p= link_to 'Search', search_questions_path , class: 'glyphicon glyphicon-search'
 .questions
   = render @questions
 br
-
+- if can? :create, Question
   p= link_to 'Ask question', new_question_path, class: 'btn btn-success'
