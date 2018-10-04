@@ -6,16 +6,16 @@ class CommentsController < ApplicationController
 
   authorize_resource
   def index
-    if params[:query].present?
-      @comments = Comment.search(params[:query]).records.records
-    else
-      @comments = Comment.all
-    end
-  end 
+    @comments = if params[:query].present?
+                  Comment.search(params[:query]).records.records
+                else
+                  Comment.all
+                end
+  end
 
   def create
     @question = Question.find(params[:question_id])
-    respond_with(@comment = @question.comments.create(comment_params))
+    respond_with(@comment = @question.comments.create(comment_params.merge(user_id: current_user.id)))
   end
 
   private

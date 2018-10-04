@@ -2,6 +2,12 @@
   .card-block
     h2.title
       = question.title
+    h6 Deta create question  
+    u = question.created_at.try(:strftime, '%B %d, %Y')
+    br
+    h6 User email
+    u = question.user.try(:email)
+    hr
     p.text
       = question.body
     = link_to question_path(question), class: 'btn btn-success show-question-link', id: "show-question-link-#{question.id}"

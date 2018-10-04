@@ -7,6 +7,10 @@
     .card-block
       p.card-text
         = answer.body
+      u = answer.created_at.try(:strftime, '%B %d, %Y')
+      br
+      u = answer.user.try(:email)
+      hr
       - if user_signed_in?
         - if current_user.author_of?(answer)
           = link_to question_answer_path(answer.question, answer), method: :delete, remote: true, class: 'delete-answer-link btn btn-danger', id: "delete-answer-link-#{answer.id}"

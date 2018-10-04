@@ -10,12 +10,12 @@ class QuestionsController < ApplicationController
   authorize_resource
 
   def index
-    if params[:query].present?
-      @questions = Question.search(params[:query]).records.records
-    else
-      @questions = Question.all
-    end
-  end 
+    @questions = if params[:query].present?
+                   Question.search(params[:query]).records.records
+                 else
+                   Question.all
+                 end
+  end
 
   def show
     @answer = @question.answers.build
@@ -48,9 +48,7 @@ class QuestionsController < ApplicationController
 
   def search
     query = params[:search_questions].presence && params[:search_questions][:query]
-    if query
-      @questions = Question.search(query)
-    end
+    @questions = Question.search(query) if query
   end
 
   private
@@ -61,6 +59,7 @@ class QuestionsController < ApplicationController
 
   def publish_question
     return if @question.errors.any?
+
     ActionCable.server.broadcast('questions', @question.attributes.merge(email: @question.user.email))
   end
 

@@ -6,8 +6,10 @@ class AttachmentsController < ApplicationController
   respond_to :js
 
   def destroy
-    respond_with(@attachment.destroy_if_owner(current_user)) do
-      flash[:error] = 'Sorry! You can not delete this attachment' if @attachment.errors.any?
+    @attachable = @attachment.attachable
+    if current_user.author_of?(@attachable)
+      @attachment.destroy
+      flash[:notice] = 'File delete!.'
     end
   end
 

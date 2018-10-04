@@ -14,18 +14,31 @@
  *= require_self
 
  */
+ header {
+    background-color: #0d0b11;
+    width:100%;
+    height: 100%;
+	display:block;
+    position:relative;
+}
  body {
+    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
-    background-color: #FFF;
+    background-color: #e7ebf3;
 }
 
 footer {
-    height:60px;
-    position: inherit;
-    left: 0;
-    bottom: 0;
+    display: block;
+    position: relative;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'OpenSansRegular', sans-serif;
+    text-align: center; 
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #DDDDDD;
     background-color:#101010;
 }
 .best-answer-btn{
@@ -47,6 +60,8 @@ footer {
 .card-block {
     display: block;
     position: relative ;
+    width: 100%;
+    height: 100%;
     padding: 10px;
     margin-bottom: 3px;
     border: 2px;
@@ -87,13 +102,28 @@ p { overflow: hidden;
     text-indent:-9999px;
     background-image: url('ico/images/ico_top.png');
     border-radius: 50px ;
-    background-color: white
+    background-color: #e7ebf3
     }
 .upload_file{
-    color: crimson;
+    position: relative;
+    color: rgb(82, 122, 252);
     text-align: left;
     font-family: 'OpenSansRegular', sans-serif;
-}  
+}
+  
 #question_body{
- height: 200px;   
-} 
+ height: 200px;
+ width: 100%;   
+}
+
+#question_title{
+  display: block;
+  width: 100%;;
+}
+
+.comments_list{
+    border-radius: 7px ;
+    border-color: #4ea4e2 ;
+    border-style: solid;
+    padding: 10px; 
+}

@@ -7,6 +7,7 @@ class Attachment < ApplicationRecord
 
   def destroy_if_owner(current_user)
     return destroy if current_user.id == attachable.user_id
+
     errors.add(:file, 'access denied')
     self
   end

@@ -10,17 +10,18 @@ class User < ApplicationRecord
   has_many :authorizations
   has_many :subscriptions, dependent: :destroy
   has_many :question_subscriptions, through: :subscriptions, source: :question
+  has_many :comments
 
   def author_of?(resource)
     id == resource.user_id
   end
 
   def subscribed_for?(question)
-    !!self.subscriptions.where(question_id: question).first
+    !!subscriptions.where(question_id: question).first
   end
 
   def subscribtion_for(question)
-    self.subscriptions.where(question_id: question).first
+    subscriptions.where(question_id: question).first
   end
 
   def self.send_daily_digest

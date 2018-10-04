@@ -1,4 +1,4 @@
-$(document).ready( function() {
+$(document).on('turbolinks:load', function(){
   $('.edit-answer-link').click(function (e) {
     e.preventDefault();
     $(this).hide();

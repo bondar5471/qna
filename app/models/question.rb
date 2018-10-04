@@ -1,7 +1,15 @@
 # frozen_string_literal: true
+
 require 'elasticsearch/model'
 
 class Question < ApplicationRecord
+  has_many :attachments, as: :attachable, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  belongs_to :user, optional: true
+  has_many :comments, as: :commentable
+  has_many :subscribers, through: :subscriptions, source: :user
+  has_many :subscriptions, dependent: :destroy
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
@@ -12,13 +20,6 @@ class Question < ApplicationRecord
     end
   end
 
-  has_many :attachments, as: :attachable, dependent: :destroy
-  has_many :answers, dependent: :destroy
-  belongs_to :user, optional: true
-  has_many :comments, as: :commentable
-  has_many :subscribers, through: :subscriptions, source: :user
-  has_many :subscriptions, dependent: :destroy
-  
   validates :title, :body, presence: true
 
   accepts_nested_attributes_for :attachments

@@ -25,9 +25,10 @@ Rails.application.configure do
     }
   else
     config.action_controller.perform_caching = false
-
     config.cache_store = :null_store
   end
+
+  config.action_controller.enable_fragment_cache_logging = true
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local

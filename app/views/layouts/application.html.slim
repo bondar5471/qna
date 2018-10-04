@@ -28,6 +28,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
+      
           = link_to "Questions ", root_path, class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
@@ -55,10 +56,11 @@ html
           = msg
       #erros-messages
       = yield
-  .scrollup Top
-  footer.page-foorer
-    .container-fluid
-    p &copy; Company 2018
-    .row
+    .scrollup Top
+  footer
+    .page-foorer
+      .container-fluid
+        h4 &copy; Company 2018
+
 
 
