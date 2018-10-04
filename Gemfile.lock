@@ -49,17 +49,32 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrussh (1.3.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
     bcrypt (3.1.12)
-    bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.3.0)
+    capistrano (3.11.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.3.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.4.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capybara (3.8.1)
       addressable
       mini_mime (>= 0.1.3)
@@ -100,7 +115,6 @@ GEM
       nokogiri (~> 1.8)
     chronic (0.10.2)
     cocoon (1.2.11)
-    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -201,10 +215,6 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -225,6 +235,9 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     mustermann (1.0.3)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (5.0.2)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -262,9 +275,6 @@ GEM
     powerpack (0.1.2)
     private_pub (1.0.3)
       faye
-    pry (0.11.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
@@ -343,7 +353,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.10.0)
-    ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
@@ -381,11 +390,6 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
-    spring (2.0.2)
-      activesupport (>= 4.2)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -393,6 +397,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.17.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     temple (0.8.0)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -418,11 +425,6 @@ GEM
     unicode-display_width (1.4.0)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.7.0)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
-      bindex (>= 0.4.0)
-      railties (>= 5.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -439,6 +441,10 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   cancancan
+  capistrano (~> 3.11)
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
   capybara (>= 2.15, < 4.0)
   capybara-webkit
   carrierwave
@@ -456,7 +462,6 @@ DEPENDENCIES
   jquery-rails
   json_spec
   launchy
-  listen (>= 3.0.5, < 3.2)
   oj
   oj_mimic_json
   omniauth
@@ -465,7 +470,6 @@ DEPENDENCIES
   omniauth-twitter
   pg (>= 0.18, < 2.0)
   private_pub
-  pry
   puma (~> 3.11)
   rails (~> 5.2.0)
   rails-controller-testing
@@ -482,14 +486,11 @@ DEPENDENCIES
   sidetiq
   sinatra (>= 1.3.0)
   slim-rails
-  spring
-  spring-watcher-listen (~> 2.0.0)
   thin
   turbolinks (~> 5)
   twitter-bootstrap-rails
   tzinfo-data
   uglifier (>= 1.3.0)
-  web-console (>= 3.3.0)
   whenever
 
 RUBY VERSION
