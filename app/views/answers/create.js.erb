@@ -1,0 +1,18 @@
+<% if @answer.errors.present? %>
+  $('#erros-messages').html('<%= j resource_error_messages!(@answer) %>');
+<% else %>
+ // $('.answers').prepend("<%= j render @answer %>");
+  $('.new_answer #answer_body').val('');
+  $('.edit-answer-link').click(function (e) {
+    e.preventDefault();
+    $(this).hide();
+    var answer_id = $(this).parents('.answer').data('answerId');
+    $('#delete-answer-link-' + answer_id).hide();
+    $('form#edit-answer-' + answer_id).show();
+    $('#best-answer-link-' + answer_id).hide();
+    <% publish_to "/questions/#{@question.id}/answers" do %>
+     $('.answers').prepend("<%= j render @answer %>"); 
+  <%end%>
+  });
+  
+<% end %>

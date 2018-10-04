@@ -1,0 +1,13 @@
+.row
+h4 Add comment
+.comment_errors
+= render @question.comments, locals: { comment: @comment }
+=form_for [@question, comment], remote: true do |f|
+  .form-group
+    = f.label :body, 'Comment'
+  p  
+  - cache comment do
+    = f.text_area :body
+    
+  p  
+    = f.submit 'Post comment' , class: 'btn btn-success btn-sm'

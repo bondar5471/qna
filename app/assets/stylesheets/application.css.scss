@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+ header {
+    background-color: #0d0b11;
+    width:100%;
+    height: 100%;
+	display:block;
+    position:relative;
+}
+ body {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e7ebf3;
+}
+
+footer {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'OpenSansRegular', sans-serif;
+    text-align: center; 
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #DDDDDD;
+    background-color:#101010;
+}
+.best-answer-btn{
+    position: inherit;
+    color: #fff;
+    background-color: #0983ee;
+    border-color: #022747;
+    margin-top: -30px;
+    
+}
+.form-control {
+    display: block;
+    margin-top: 10px;
+    border-color: #838383;
+    border-radius: 10px ;
+    
+}
+
+.card-block {
+    display: block;
+    position: relative ;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin-bottom: 3px;
+    border: 2px;
+    border-radius: 7px ;
+    border-color: #5e6b74 ;
+    border-style: solid;
+} 
+h2 {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    text-align: left;
+    color: #3c3d3d;
+    font-family: 'OpenSansRegular', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 50px 0 0 0;
+}
+
+p { overflow: hidden;
+    display: block;
+    position: relative;
+    text-align: left;
+    color: #3c3d3d;
+    font-family: 'OpenSansRegular', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 0 0 0;
+}
+.scrollup{
+    width:50px;
+    height:50px;
+    opacity:0.5;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background-image: url('ico/images/ico_top.png');
+    border-radius: 50px ;
+    background-color: #e7ebf3
+    }
+.upload_file{
+    position: relative;
+    color: rgb(82, 122, 252);
+    text-align: left;
+    font-family: 'OpenSansRegular', sans-serif;
+}
+  
+#question_body{
+ height: 200px;
+ width: 100%;   
+}
+
+#question_title{
+  display: block;
+  width: 100%;;
+}
+
+.comments_list{
+    border-radius: 7px ;
+    border-color: #4ea4e2 ;
+    border-style: solid;
+    padding: 10px; 
+}

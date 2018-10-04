@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -32,19 +34,49 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'active_model_serializers'
+gem 'cancancan'
+gem 'carrierwave'
+gem 'cocoon'
+gem 'devise'
+gem 'disqus_rails'
+gem 'doorkeeper', '4.2.6'
+gem 'jquery-rails'
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'private_pub'
+gem 'rails-controller-testing'
+gem 'remotipart'
+gem 'responders', '~> 2.0'
+gem 'rubocop'
+gem 'slim-rails'
+gem 'selenium-webdriver'
+gem 'thin'
+gem 'twitter-bootstrap-rails'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', require: nil
+gem 'sidetiq'
+gem 'whenever', require: false
+gem 'redis', '4.0.2'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
+  gem 'pry'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -52,17 +84,22 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'json_spec'
   gem 'shoulda-matchers'
 end
 
 group :test, :development do
-gem 'rspec-rails'
-gem 'factory_bot_rails'
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'launchy'
+  gem 'rspec-its'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

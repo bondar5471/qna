@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+class AddQuestionIdToAttachment < ActiveRecord::Migration[5.2]
+  def change
+    add_column :attachments, :question_id, :integer, index: true
+  end
+end

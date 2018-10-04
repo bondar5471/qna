@@ -1,0 +1,21 @@
+h2 New question
+= form_for @question do |f|
+
+ = f.label :title
+ p
+ = f.text_field  :title
+ p
+ = f.label :body
+ p
+ = f.text_area  :body
+ p Add file:
+ p
+  .upload_file
+
+    =f.fields_for :attachments do |a|
+      = render 'questions/attachment_fields', f: a
+      .links
+      = link_to_add_association 'Add more', f, :attachments
+     
+ = f.submit 'Create', class: 'btn btn-success'
+ 

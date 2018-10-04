@@ -10,7 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require activestorage
+//= require jquery3
+//= require jquery
+//= require jquery_ujs
+//= require jquery.remotipart
+//= require cocoon
+//= require private_pub
+//= require action_cable
+//= twitter-bootstrap-rails-4.0.0
 //= require turbolinks
 //= require_tree .
+
+var App = App || {};
+App.cable = ActionCable.createConsumer();

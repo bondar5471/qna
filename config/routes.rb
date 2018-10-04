@@ -1,3 +1,48 @@
+# frozen_string_literal: true
+
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  resource :subscriptions, only: [:create, :destroy]
+
+  use_doorkeeper
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  root to: 'questions#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :profiles do
+        get :me, on: :collection
+      end
+      resources :questions
+    end
+  end
+
+  concern :commentable do
+    resources :comments
+  end
+
+  resources :questions do
+    collection do
+      get :search
+    end
+    resources :comments
+    collection do
+      get :search
+    end
+    resources :answers do
+      collection do
+        get :search
+      end
+      member do
+        patch :make_best
+      end
+    end
+  end
+  resources :attachments, only: :destroy
+  mount ActionCable.server => '/cable'
 end

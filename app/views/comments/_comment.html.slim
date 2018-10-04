@@ -1,0 +1,5 @@
+.comment
+  p= comment.body
+  u = comment.created_at.try(:strftime, '%B %d, %Y')
+  br
+  u = comment.user.try(:email)
