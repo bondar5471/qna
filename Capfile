@@ -8,7 +8,8 @@ require 'capistrano/deploy'
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
-require 'capistrano/ssh_doctor'
+require 'capistrano/sidekiq'
+
 
 # Load the SCM plugin appropriate to your project:
 #
