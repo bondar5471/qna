@@ -68,6 +68,7 @@ gem 'elasticsearch-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
+gem 'therubyracer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -75,10 +76,10 @@ group :development, :test do
 end
 
 group :development do
-  gem "capistrano", "~> 3.11", require: false
-  gem "capistrano-bundler", require: false
-  gem "capistrano-rails", require: false
-  gem "capistrano-rvm", require: false
+  gem 'capistrano', '~> 3.11', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
   gem 'listen'
   gem 'capistrano-ssh-doctor', '~> 1.0'
 end

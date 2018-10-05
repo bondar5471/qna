@@ -1,17 +1,19 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+# frozen_string_literal: true
 
-set :application, "QnA"
-set :repo_url, "git@github.com:bondar5471/qna.git"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.11.0'
+
+set :application, 'QnA'
+set :repo_url, 'git@github.com:bondar5471/qna.git'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/qna"
-set :deploy_user, "deploy"
+set :deploy_to, '/home/deploy/qna'
+set :deploy_user, 'deploy'
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/private_pub.yml", ".env"
+append :linked_files, 'config/database.yml', 'config/private_pub.yml', '.env'
 # Default value for linked_dirs is []
-append :linked_dirs, "bin", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads","vendot/bundle"
+append :linked_dirs, 'bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads', 'vendot/bundle'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
