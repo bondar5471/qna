@@ -7,7 +7,7 @@ role :web, %w[deploy@18.130.118.104]
 role :db, %w[deploy@18.130.118.104]
 
 set :rails_env, :production
-set :stage, :production
+#set :stage, :production
 
 set :ssh_options,
     keys: ['/home/bondar/proj_ruby/QnAEs.pem'],
