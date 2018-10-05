@@ -146,6 +146,8 @@ GEM
     dotenv (1.0.2)
     dotenv-deployment (0.3.0)
       dotenv (~> 1.0)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     elasticsearch (6.1.0)
       elasticsearch-api (= 6.1.0)
       elasticsearch-transport (= 6.1.0)
@@ -472,8 +474,8 @@ DEPENDENCIES
   devise
   disqus_rails
   doorkeeper (= 4.2.6)
-  dotenv
   dotenv-deployment
+  dotenv-rails
   elasticsearch-model
   elasticsearch-rails
   execjs

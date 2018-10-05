@@ -66,7 +66,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
 gem 'therubyracer'
 gem 'execjs'
