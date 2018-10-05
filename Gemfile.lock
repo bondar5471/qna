@@ -475,6 +475,7 @@ DEPENDENCIES
   dotenv-deployment
   elasticsearch-model
   elasticsearch-rails
+  execjs
   factory_bot_rails
   jbuilder (~> 2.5)
   jquery-rails
