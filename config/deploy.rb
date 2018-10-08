@@ -11,6 +11,52 @@ set :deploy_to, '/home/deploy/qna'
 set :deploy_user, 'deploy'
 
 # Default value for :linked_files is []
-append :linked_files, 'config/database.yml', 'config/private_pub.yml', '.env'
+append :linked_files, 'config/database.yml', 'config/private_pub.yml', 'config/private_pub_thin.yml', '.env'
 # Default value for linked_dirs is []
 append :linked_dirs, 'bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads', 'vendot/bundle'
+
+namespace :deploy do
+  desc 'Restart app' 
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke "unicorn:restart"
+    end
+  end
+  
+  after :publishing, :restart
+end
+
+namespace :private_pub do
+  desc 'Start private_pub server'
+  task :start do
+    on roles(:app) do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml start"
+        end
+      end
+    end
+  end
+
+  desc 'Stop private_pub server'
+  task :stop do
+    on roles(:app) do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml stop"
+        end
+      end
+    end
+  end
+
+  desc 'Restart private_pub server'
+  task :restart do
+    on roles(:app) do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml restart"
+        end
+      end
+    end
+  end
+end

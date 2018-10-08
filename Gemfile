@@ -70,6 +70,8 @@ gem 'dotenv-rails'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
 gem 'therubyracer'
 gem 'execjs'
+gem 'unicorn', '~> 5.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -83,6 +85,7 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'listen'
   gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-unicorn', require: false
 end
 
 group :test do
