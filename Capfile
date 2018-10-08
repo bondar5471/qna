@@ -9,6 +9,7 @@ require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 
+
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
@@ -19,6 +20,7 @@ require 'capistrano/rails'
 # or
 require 'capistrano/scm/git'
 require 'capistrano/sidekiq'
+require 'whenever/capistrano'
 install_plugin Capistrano::SCM::Git
 
 # Include tasks from other gems included in your Gemfile
