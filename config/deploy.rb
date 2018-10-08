@@ -3,7 +3,7 @@
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.11.0'
 
-set :application, 'QnA'
+set :application, 'qna'
 set :repo_url, 'git@github.com:bondar5471/qna.git'
 
 # Default deploy_to directory is /var/www/my_app_name
@@ -22,7 +22,7 @@ namespace :deploy do
       invoke "unicorn:restart"
     end
   end
-  
+
   after :publishing, :restart
 end
 
