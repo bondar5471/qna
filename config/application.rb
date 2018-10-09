@@ -14,18 +14,7 @@ module Qna
     config.app_generators.scaffold_controller :responders_controller
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
-
-    # Load defaults from config/*.env in config
-  Dotenv.load *Dir.glob(Rails.root.join("config/**/*.env"), File::FNM_DOTMATCH)
-
-    # Override any existing variables if an environment-specific file exists
-  Dotenv.overload *Dir.glob(Rails.root.join("config/**/*.env.#{Rails.env}"), File::FNM_DOTMATCH)
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
-
+    config.load_defaults 5.2   
     config.active_job.queue_adapter = :sidekiq
     config.generators do |g|
       g.test_framework :rspec,
