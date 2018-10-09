@@ -1,9 +1,9 @@
 ThinkingSphinx::Index.define :question, with: :active_record do
-  #filed
-  indexes title, sortable: true 
-  index body
-  index user.email, as: :author, sortable: true 
+  # filled
+  indexes title, sortable: true
+  indexes body
+  indexes user.email, as: :author, sortable: true
 
-  #atributes
+  # attributes
   has user_id, created_at, updated_at
 end

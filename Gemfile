@@ -69,7 +69,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'dotenv-rails'
 gem 'therubyracer'
 gem 'execjs'
-gem 'mysql2'
+gem 'mysql2', require: 'thinking_sphinx'
 gem 'thinking-sphinx'
 gem 'unicorn', '~> 5.1'
 
