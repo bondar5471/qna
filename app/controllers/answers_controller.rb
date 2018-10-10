@@ -9,13 +9,13 @@ class AnswersController < ApplicationController
 
   authorize_resource
 
-  def index
-    @answers = if params[:query].present?
-                 Answer.search(params[:query]).records.records
-               else
-                 Answer.all
-               end
-  end
+  # def index
+  #   @answers = if params[:query].present?
+  #                Answer.search(params[:query]).records.records
+  #              else
+  #                Answer.all
+  #              end
+  # end
 
   def create
     @answer = @question.answers.create(answer_params.merge(user: current_user))

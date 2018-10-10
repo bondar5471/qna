@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/oj-3.6.10/ext/oj
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-18ckxch.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181009-17153-1xxmt5s.rb extconf.rb
 >>>>> Creating Makefile for ruby version 2.5.1 on x86_64-linux <<<<<
 creating Makefile
 
@@ -44,4 +44,4 @@ linking shared-object oj/oj.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/oj-3.6.10/ext/oj
 make "DESTDIR=" install
-/usr/bin/install -m 0755 oj.so ./.gem.20180925-12023-v61vqd/oj
+/usr/bin/install -m 0755 oj.so ./.gem.20181009-17153-6oxf9h/oj

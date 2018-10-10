@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/therubyracer-0.12.3/ext/v8
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181005-16565-1l2534m.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181009-17153-1688dus.rb extconf.rb
 checking for -lpthread... yes
 creating Makefile
 
@@ -185,4 +185,4 @@ linking shared-object v8/init.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/therubyracer-0.12.3/ext/v8
 make "DESTDIR=" install
-/usr/bin/install -m 0755 init.so ./.gem.20181005-16565-pa7ye2/v8
+/usr/bin/install -m 0755 init.so ./.gem.20181009-17153-131j23m/v8

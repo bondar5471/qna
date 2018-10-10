@@ -5,13 +5,13 @@ class CommentsController < ApplicationController
   respond_to :js
 
   authorize_resource
-  def index
-    @comments = if params[:query].present?
-                  Comment.search(params[:query]).records.records
-                else
-                  Comment.all
-                end
-  end
+  # def index
+  #   @comments = if params[:query].present?
+  #                 Comment.search(params[:query]).records.records
+  #               else
+  #                 Comment.all
+  #               end
+  # end
 
   def create
     @question = Question.find(params[:question_id])

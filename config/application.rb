@@ -14,7 +14,7 @@ module Qna
     config.app_generators.scaffold_controller :responders_controller
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2   
+    config.load_defaults 5.2
     config.active_job.queue_adapter = :sidekiq
     config.generators do |g|
       g.test_framework :rspec,

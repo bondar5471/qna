@@ -1,5 +1,5 @@
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/jaro_winkler-1.5.1/ext/jaro_winkler
-/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180925-12023-1sv116f.rb extconf.rb
+/usr/share/rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181009-17153-18x41ch.rb extconf.rb
 creating Makefile
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/jaro_winkler-1.5.1/ext/jaro_winkler
@@ -60,4 +60,4 @@ linking shared-object jaro_winkler/jaro_winkler_ext.so
 
 current directory: /home/bondar/proj_ruby/qnasample/qna/vendor/cache/ruby/2.5.0/gems/jaro_winkler-1.5.1/ext/jaro_winkler
 make "DESTDIR=" install
-/usr/bin/install -m 0755 jaro_winkler_ext.so ./.gem.20180925-12023-k8fnzf/jaro_winkler
+/usr/bin/install -m 0755 jaro_winkler_ext.so ./.gem.20181009-17153-1ltmac0/jaro_winkler

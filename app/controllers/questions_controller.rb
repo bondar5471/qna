@@ -9,13 +9,13 @@ class QuestionsController < ApplicationController
 
   authorize_resource
 
-  def index
-    @questions = if params[:query].present?
-                   Question.search(params[:query]).records.records
-                 else
-                   Question.all
-                 end
-  end
+  # def index
+  #   @questions = if params[:query].present?
+  #                  Question.search(params[:query]).records.records
+  #                else
+  #                  Question.all
+  #                end
+  # end
 
   def show
     @answer = @question.answers.build

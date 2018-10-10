@@ -28,3 +28,5 @@
 /config/master.key
 config/database.yml
 config/private_pub.yml
+config/*.sphinx.conf
+db/sphinx

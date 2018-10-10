@@ -16,10 +16,10 @@ append :linked_files, 'config/database.yml', 'config/private_pub.yml', 'config/p
 append :linked_dirs, 'bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads', 'vendot/bundle'
 
 namespace :deploy do
-  desc 'Restart app' 
+  desc 'Restart app'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke "unicorn:restart"
+      invoke 'unicorn:restart'
     end
   end
 
@@ -32,7 +32,7 @@ namespace :private_pub do
     on roles(:app) do
       within current_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml start"
+          execute :bundle, 'exec thin -C /qna/shared/config/private_pub_thin.yml start'
         end
       end
     end
@@ -43,7 +43,7 @@ namespace :private_pub do
     on roles(:app) do
       within current_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml stop"
+          execute :bundle, 'exec thin -C /qna/shared/config/private_pub_thin.yml stop'
         end
       end
     end
@@ -54,7 +54,7 @@ namespace :private_pub do
     on roles(:app) do
       within current_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, "exec thin -C /qna/shared/config/private_pub_thin.yml restart"
+          execute :bundle, 'exec thin -C /qna/shared/config/private_pub_thin.yml restart'
         end
       end
     end

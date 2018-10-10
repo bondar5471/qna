@@ -1,0 +1,15 @@
+development:
+  address: 'localhost'
+  mysql41: 9312
+  indexed_models:
+    - Question
+    - Answer
+    - Comment
+
+test:
+  address: 'localhost'
+  mysql41: 9313
+  indexed_models:
+    - Question
+    - Answer
+    - Comment
