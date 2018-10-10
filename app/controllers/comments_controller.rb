@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
     respond_with(@comment = @question.comments.create(comment_params.merge(user_id: current_user.id)))
   end
 
+  def search
+    query = params[:search_comments].presence && params[:search_comments][:query]
+    @comments = Comment.search(query) if query
+  end
+
   private
 
   def comment_params

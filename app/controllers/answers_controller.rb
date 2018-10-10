@@ -37,6 +37,11 @@ class AnswersController < ApplicationController
     respond_with @answer
   end
 
+  def search
+    query = params[:search_answers].presence && params[:search_answers][:query]
+    @answers = Answer.search(query) if query
+  end
+
   private
 
   def find_question
