@@ -23,22 +23,22 @@ end
 # preload
 preload_app true
 
-# before_fork do |server, _worker|
-#   # the following is highly recomended for Rails + "preload_app true"
-#   # as there's no need for the master process to hold a connection
-#   ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
+before_fork do |server, _worker|
+  # the following is highly recomended for Rails + "preload_app true"
+  # as there's no need for the master process to hold a connection
+  ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
 
-#   # Before forking, kill the master process that belongs to the .oldbin PID.
-#   # This enables 0 downtime deploys.
-#   old_pid = "#{server.config[:pid]}.oldbin"
-#   if File.exist?(old_pid) && server.pid != old_pid
-#     begin
-#       Process.kill('QUIT', File.read(old_pid).to_i)
-#     rescue Errno::ENOENT, Errno::ESRCH
-#       # someone else did our job for us
-#     end
-#   end
-# end
+  # Before forking, kill the master process that belongs to the .oldbin PID.
+  # This enables 0 downtime deploys.
+  old_pid = "#{server.config[:pid]}.oldbin"
+  if File.exist?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill('QUIT', File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+      # someone else did our job for us
+    end
+  end
+end
 
 after_fork do |_server, _worker|
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
