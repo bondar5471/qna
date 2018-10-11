@@ -33,7 +33,7 @@ before_fork do |server, _worker|
   old_pid = "#{server.config[:pid]}.oldbin"
   if File.exist?(old_pid) && server.pid != old_pid
     begin
-      run "kill -s QUIT `cat  #{deploy_to}/shared/tmp/pids/unicorn.pid`"
+      run "kill -s QUIT `cat  #{app_path}/shared/tmp/pids/unicorn.pid`"
       Process.kill('QUIT', File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
       # someone else did our job for us
